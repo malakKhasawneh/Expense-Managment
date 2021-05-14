@@ -1,9 +1,10 @@
-package com.example.scanningreceiptstest
+package com.example.scanningreceiptstest.Controller
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.scanningreceiptstest.databinding.ActivityMainBinding
@@ -12,6 +13,8 @@ import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+//import kotlinx.android.synthetic.main.filter.*
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
@@ -175,7 +178,7 @@ class MainActivity : AppCompatActivity() {
                     codeStatusText.text = ""
                 }
             }
-            STATE_SIGNIN_SUCCESS -> { /******* hide the codeStatus? ***/
+            STATE_SIGNIN_SUCCESS -> { /******* automatically go to the next page ***/
                 Toast.makeText(this, "sign up success", Toast.LENGTH_LONG).show()
                 binding.apply {
                     phoneStatusText.text = ""
